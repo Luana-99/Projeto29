@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Cliente } from './clientes/cliente.model';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,8 +9,10 @@ import { Cliente } from './clientes/cliente.model';
 })
 export class AppComponent {
   clientes: Cliente[] = [];
+ 
 
   onClienteAdicionado(cliente: Cliente) {
   this.clientes.push(cliente);
   }
+
 }

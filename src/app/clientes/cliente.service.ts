@@ -18,7 +18,7 @@ export class ClienteService {
 
     getClientes(): void {
         this.httpClient
-            .get<{ mensagem: string, clientes: any }>('http://localhost:3000/api/clientes')
+            .get<{ mensagem: string, clientes: any }>('http://localhost:5939/api/clientes')
             .pipe(map((dados) => {
                 return dados.clientes.map((cliente: { _id: any; nome: any; fone: any; email: any;senha:any;endereco:any;cidade:any;estado:any;bairro:any }) => {
                     return {
@@ -59,7 +59,7 @@ export class ClienteService {
             
 
         };
-        this.httpClient.post<{ mensagem: string, id: string }>('http://localhost:3000/api/clientes',
+        this.httpClient.post<{ mensagem: string, id: string }>('http://localhost:5939/api/clientes',
             cliente).subscribe(
                 (dados) => {
                     cliente.id = dados.id;
@@ -73,7 +73,7 @@ export class ClienteService {
         return this.listaClientesAtualizada.asObservable();
     }
     removerCliente(id: string): void {
-        this.httpClient.delete(`http://localhost:3000/api/clientes/${id}`).subscribe(() => {
+        this.httpClient.delete(`http://localhost:5939/api/clientes/${id}`).subscribe(() => {
             this.clientes = this.clientes.filter((cli) => {
                 return cli.id !== id
             });

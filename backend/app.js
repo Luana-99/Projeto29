@@ -7,17 +7,22 @@ const Cliente = require("./models/cliente");
 
 mongoose
   .connect(
-    'mongodb+srv://Projeto_2021:<Projeto_2021>@cluster0.un0lx.mongodb.net/Projeto_2021?retryWrites=true&w=majority'
+    'mongodb+srv://Projeto_2021:projeto21@cluster0.un0lx.mongodb.net/Projeto_2021?retryWrites=true&w=majority'
   )
   .then(() => {
     console.log("Conexão OK");
   })
-  .catch(() => {
-    console.log("Conexão NOK");
-    mongoose.connection.close({
-    });
-    
+  .catch(function(e) {
+    console.log(e);
   });
+    
+  const get = async () => {
+    return Promise.reject('Oops!').catch(err => {
+      throw new Error(err);
+    });
+  };
+  
+ 
  
 app.use((req, res, next) => {res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(

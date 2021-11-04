@@ -72,18 +72,34 @@
       />
       <mat-error *ngIf="cidade.invalid">Informe a cidade</mat-error>
     </mat-form-field>
-    <mat-form-field>
-      <input
-        type="text"
+    
+      <select
         required
-        matInput
+        matSelect
         placeholder="estado"
         name="estado"
         ngModel
         #estado="ngModel"
-      />
+      ><option value="SP">SP</option>
+      <option>RJ</option>
+      <option>MG</option>
+      <option>BA</option>
+      <option>SE</option>
+      <option>RN</option>
+      <option>CE</option>
+      <option>TO</option>
+      <option>RO</option>
+      <option>RR</option>
+      <option>RS</option>
+      <option>MS</option>
+      <option>MT</option>
+      <option>SC</option>
+      <option>PR</option>
+      <option>PA</option>
+      <option>PI</option>
+    </select>
       <mat-error *ngIf="estado.invalid">Digite o Estado</mat-error>
-    </mat-form-field>
+   
     <mat-form-field>
       <input
         type="text"

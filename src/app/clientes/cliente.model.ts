@@ -9,5 +9,3 @@ export interface Cliente {
     estado:string;
     bairro:string;
     }
-
-    

@@ -7,16 +7,19 @@
 }
 body {
     font-family: 'Open Sans', sans-serif;
+    background-color: #000;
 }
 .container {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f89c24;
+    background-color: #2824f8;
 }
+
 .content {
-    background-color: #fff;
+    background-color: rgb(248, 245, 245);
     border-radius: 15px;
     width: 960px;
     height: 50%;
@@ -27,13 +30,11 @@ body {
 .content::before {
     content: "";
     position: absolute;
-    background-color: #000303;
+    background-color: rgb(230, 137, 30);
     width: 40%;
     height: 100%;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-
-
     left: 0;
 }
 .title {
@@ -506,8 +507,9 @@ input:-webkit-autofill
     }
 }
 
-
-
+main{
+    width: 100%;
+}
 
 
 

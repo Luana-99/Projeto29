@@ -15,17 +15,25 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ClienteService } from './clientes/cliente.service';
 import { AppRoutingModule } from './app-routing.module';
 import { Cadastro } from './cadastro/cliente.component';
+import { MenuComponent } from './menu/menu.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+
+
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro
+    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent
   ],
   imports: [
     BrowserModule, FormsModule, BrowserAnimationsModule,
     MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
-    MatExpansionModule,HttpClientModule,AppRoutingModule,
+    MatExpansionModule,HttpClientModule,AppRoutingModule, LayoutModule, MatSidenavModule, MatIconModule, MatListModule,
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent]
