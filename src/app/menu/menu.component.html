@@ -1,5 +1,5 @@
-<mat-sidenav-container class="sidenav-bloco" *ngIf="shouldRun">
- <mat-sidenav #sidenav mode="push" [(opened)]="opened" (opened)="events.push('open!')"
+<mat-sidenav-container class="sidenav-container" *ngIf="shouldRun">
+ <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
                (closed)="events.push('close!')">
     <mat-nav-list>
       <a mat-list-item href="#">Link 1</a>

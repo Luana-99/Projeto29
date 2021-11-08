@@ -1,0 +1,10 @@
+.mat-card{
+    margin-left: 10px;
+    width: 100%;
+}
+
+.carousel{
+    align-self: center;
+    margin:auto; 
+    width: 750px;
+}

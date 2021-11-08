@@ -20,6 +20,10 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { InicioComponent } from './inicio/inicio.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+
+
 
 
 
@@ -28,12 +32,12 @@ import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
-    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent
+    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent, InicioComponent
   ],
   imports: [
     BrowserModule, FormsModule, BrowserAnimationsModule,
     MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
-    MatExpansionModule,HttpClientModule,AppRoutingModule, LayoutModule, MatSidenavModule, MatIconModule, MatListModule,
+    MatExpansionModule,HttpClientModule,AppRoutingModule, LayoutModule, MatSidenavModule, MatIconModule, MatListModule,IvyCarouselModule
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent]
