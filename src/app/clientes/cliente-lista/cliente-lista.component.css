@@ -4,6 +4,9 @@
   }
 
   .mat-raised-button{
-    
     background-color: rgb(240, 162, 47);
+  }
+  #bn_voltar{
+    margin-left: 10px; 
+    margin-top: 30px;
   }

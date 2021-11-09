@@ -1,4 +1,3 @@
-
 mat-form-field,
 input {
   width: 100%;
@@ -19,4 +18,7 @@ input {
 }
 ::ng-reflect-model{
   font-display: 3;
+}
+#bn_voluntarios{
+  margin-left: 10px;
 }
