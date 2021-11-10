@@ -3,6 +3,7 @@ import { Cliente } from './cliente.model';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 import { identifierModuleUrl } from '@angular/compiler';
 
 @Injectable({ providedIn: 'root' })
@@ -42,7 +43,7 @@ export class ClienteService {
             )
     }
 
-    constructor(private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient,private router:Router) {
     }
 
     adicionarCliente(nome: string, fone: string, email: string,senha: string,endereco:string,cidade:string,estado:string,bairro:string) {
@@ -65,9 +66,15 @@ export class ClienteService {
                     cliente.id = dados.id;
                     this.clientes.push(cliente);
                     this.listaClientesAtualizada.next([...this.clientes]);
+                    this.router.navigate(['/']);
                 }
             )
     }
+    getCliente (idCliente: string){
+        //return {...this.clientes.find((cli) => cli.id === idCliente)};
+        return this.httpClient.get<{_id: string, nome: string, fone: string, email: string,senha: string,endereco:string,cidade:string,estado:string,bairro:string}>(`http://localhost:3000/api/clientes/${idCliente}`);
+            
+        }
 
     getListaDeClientesAtualizadaObservable() {
         return this.listaClientesAtualizada.asObservable();
@@ -80,4 +87,16 @@ export class ClienteService {
             this.listaClientesAtualizada.next([...this.clientes]);
         });
     }
-}
+    atualizarCliente (id: string, nome: string, fone: string, email: string,senha: string,endereco:string,cidade:string,estado:string,bairro:string)
+    {
+        const cliente: Cliente = { id, nome, fone, email,senha,endereco,cidade,estado,bairro};
+            this.httpClient.put(`http://localhost:3000/api/clientes/${id}`, cliente)
+            .subscribe((res => {
+            const copia = [...this.clientes];
+            const indice = copia.findIndex (cli => cli.id === cliente.id);
+            copia[indice] = cliente;
+            this.clientes = copia;
+            this.listaClientesAtualizada.next([...this.clientes]);
+            this.router.navigate(['/'])
+            }));
+            }}

@@ -11,6 +11,7 @@ const routes: Routes = [
 {path:'inicio',component:InicioComponent},
 { path: 'criar', component: ClienteInserirComponent},
 { path: 'lista', component: ClienteListaComponent },
+{path: 'editar/:idCliente', component: ClienteInserirComponent}
 
 
 ];

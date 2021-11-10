@@ -1,5 +1,6 @@
 <mat-card>
-  <form (submit)="onAdicionarCliente(clienteForm)" #clienteForm="ngForm">
+  <mat-spinner *ngIf="estaCarregando"></mat-spinner>
+  <form (submit)="onSalvarCliente(clienteForm)" *ngIf="!estaCarregando" #clienteForm="ngForm">
     <mat-form-field>
       <input
         required
@@ -8,7 +9,7 @@
         matInput
         placeholder="nome"
         name="nome"
-        ngModel
+        [ngModel]="cliente?.nome"
         #nome="ngModel"
       /><mat-error *ngIf="nome.invalid">Digite um nome válido</mat-error>
     </mat-form-field>
@@ -19,7 +20,7 @@
         matInput
         placeholder="fone"
         name="fone"
-        ngModel
+        [ngModel]="cliente?.fone"
         #fone="ngModel"
       />
       <mat-error *ngIf="fone.invalid">Digite um telefone válido</mat-error>
@@ -31,7 +32,7 @@
         matInput
         placeholder="email"
         name="email"
-        ngModel
+        [ngModel]="cliente?.email"
         #email="ngModel"
       />
       <mat-error *ngIf="email.invalid">Digite um nome válido</mat-error>
@@ -43,7 +44,7 @@
         matInput
         placeholder="senha"
         name="senha"
-        ngModel
+        [ngModel]="cliente?.senha"
         #senha="ngModel"
       />
       <mat-error *ngIf="senha.invalid">Informe nova senha</mat-error>
@@ -55,7 +56,7 @@
         matInput
         placeholder="endereco"
         name="endereco"
-        ngModel
+        [ngModel]="cliente?.endereco"
         #endereco="ngModel"
       />
       <mat-error *ngIf="endereco.invalid">Digite o endereço</mat-error>
@@ -67,7 +68,7 @@
         matInput
         placeholder="cidade"
         name="cidade"
-        ngModel
+        [ngModel]="cliente?.cidade"
         #cidade="ngModel"
       />
       <mat-error *ngIf="cidade.invalid">Informe a cidade</mat-error>
@@ -78,7 +79,7 @@
         matSelect
         placeholder="estado"
         name="estado"
-        ngModel
+        [ngModel]="cliente?.estado"
         #estado="ngModel"
       ><option value="SP">SP</option>
       <option>RJ</option>
@@ -107,12 +108,12 @@
         matInput
         placeholder="bairro"
         name="bairro"
-        ngModel
+        [ngModel]="cliente?.bairro"
         #bairro="ngModel"
       />
       <mat-error *ngIf="estado.invalid">Digite o Bairro</mat-error>
     </mat-form-field>
-    <button mat-raised-button>Inserir</button>
+    <button color='accent' mat-raised-button>Inserir</button>
     <button id=bn_voluntarios mat-raised-button  routerLink="/lista"> Verificar Voluntarios </button>
   </form>
 </mat-card>

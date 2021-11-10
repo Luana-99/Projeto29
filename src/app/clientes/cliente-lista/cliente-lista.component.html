@@ -1,4 +1,5 @@
-<mat-accordion *ngIf="clientes.length > 0">
+<mat-spinner *ngIf="estaCarregando"></mat-spinner>
+<mat-accordion *ngIf="clientes.length > 0 && !estaCarregando">
     <mat-expansion-panel *ngFor="let flu of clientes">
       <mat-expansion-panel-header
         >Nome: {{ flu.nome }}
@@ -18,13 +19,13 @@
     <p>Bairro: {{ flu.bairro }}</p>
     <hr />
       <mat-action-row>
-        <button mat-button color="primary">EDITAR</button>
+        <a mat-button color="primary" [routerLink]="['/editar', flu.id]">EDITAR</a>
         <button mat-button color="warn"(click)="onDelete(flu.id)">REMOVER</button>
       </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>
   
-  <p class="mat-body-1" style="text-align: center" *ngIf="clientes.length <= 0">
+  <p class="mat-body-1" style="text-align: center" *ngIf="clientes.length <= 0 &&! estaCarregando">
     Nenhum cliente cadastrado
   </p>
   <button id=bn_voltar mat-raised-button  routerLink="/inicio" > Voltar ao inicio </button>

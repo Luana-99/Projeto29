@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ClienteListaComponent } from './clientes/cliente-lista/cliente-lista.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ClienteService } from './clientes/cliente.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,12 +25,6 @@ import { InicioComponent } from './inicio/inicio.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent, InicioComponent
@@ -37,7 +32,8 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
   imports: [
     BrowserModule, FormsModule, BrowserAnimationsModule,
     MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
-    MatExpansionModule,HttpClientModule,AppRoutingModule, LayoutModule, MatSidenavModule, MatIconModule, MatListModule,IvyCarouselModule
+    MatExpansionModule,HttpClientModule,AppRoutingModule, LayoutModule, MatSidenavModule,
+    MatIconModule, MatListModule,IvyCarouselModule,MatProgressSpinnerModule
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent]

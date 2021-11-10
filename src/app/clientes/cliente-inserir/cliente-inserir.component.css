@@ -22,3 +22,6 @@ input {
 #bn_voluntarios{
   margin-left: 10px;
 }
+.mat-spinner{
+  margin: auto;
+}

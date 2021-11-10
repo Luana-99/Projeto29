@@ -11,19 +11,25 @@ styleUrls: ['./cliente-lista.component.css'],
 export class ClienteListaComponent implements OnInit, OnDestroy {
 clientes: Cliente[] = [];
 clientesSubscription: Subscription = new Subscription;
+public estaCarregando=false;
+
 constructor(public clienteService: ClienteService) {}
-onDelete (id: string): void{
-    this.clienteService.removerCliente(id);
-    }
+
 
   ngOnInit(): void {
+    this.estaCarregando=true;
     this.clienteService.getClientes();
     this.clientesSubscription = this.clienteService
 .getListaDeClientesAtualizadaObservable()
 .subscribe((clientes: Cliente[]) => {
+  this.estaCarregando=false;
 this.clientes = clientes;
 });
   }
+
+  onDelete (id: string): void{
+    this.clienteService.removerCliente(id);
+    }
 
   ngOnDestroy(): void {
     this.clientesSubscription.unsubscribe();
