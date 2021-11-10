@@ -32,10 +32,9 @@ export class ClienteInserirComponent implements OnInit {
                     fone: dadosCli.fone,
                     email: dadosCli.email,
                     senha:dadosCli.senha,
-                    endereco:dadosCli.endereco,
-                    cidade:dadosCli.cidade,
+                    especialidade:dadosCli.especialidade,
                     estado:dadosCli.estado,
-                    bairro:dadosCli.bairro
+                    crp:dadosCli.crp
 
                     };
                     });
@@ -59,10 +58,9 @@ onSalvarCliente(form: NgForm) {
     form.value.fone,
     form.value.email,
     form.value.senha,
-    form.value.endereco,
-    form.value.cidade,
+    form.value.especialidade,
     form.value.estado,
-    form.value.bairro,
+    form.value.crp,
         );
     }else{
         this.clienteService.atualizarCliente(
@@ -71,10 +69,9 @@ onSalvarCliente(form: NgForm) {
             form.value.fone,
             form.value.email,
             form.value.senha,
-            form.value.endereco,
-            form.value.cidade,
+            form.value.especialidade,
             form.value.estado,
-            form.value.bairro,
+            form.value.crp
 
 
         )

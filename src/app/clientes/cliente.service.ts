@@ -19,19 +19,18 @@ export class ClienteService {
 
     getClientes(): void {
         this.httpClient
-            .get<{ mensagem: string, clientes: any }>('http://localhost:5939/api/clientes')
+            .get<{ mensagem: string, clientes: any }>('http://localhost:3000/api/clientes')
             .pipe(map((dados) => {
-                return dados.clientes.map((cliente: { _id: any; nome: any; fone: any; email: any;senha:any;endereco:any;cidade:any;estado:any;bairro:any }) => {
+                return dados.clientes.map((cliente: { _id: any; nome: any; fone: any; email: any;senha:any;especialidade:any;estado:any;crp:any }) => {
                     return {
                         id: cliente._id,
                         nome: cliente.nome,
                         fone: cliente.fone,
                         email: cliente.email,
                         senha:cliente.senha,
-                        endereco:cliente.endereco,
-                        cidade:cliente.cidade,
+                        especialidade:cliente.especialidade,
                         estado:cliente.estado,
-                        bairro:cliente.bairro
+                        crp:cliente.crp
                         }
                 })
             }))
@@ -46,21 +45,20 @@ export class ClienteService {
     constructor(private httpClient: HttpClient,private router:Router) {
     }
 
-    adicionarCliente(nome: string, fone: string, email: string,senha: string,endereco:string,cidade:string,estado:string,bairro:string) {
+    adicionarCliente(nome: string, fone: string, email: string,senha: string,especialidade:string,estado:string,crp:string) {
         const cliente: Cliente = {
             id: '',
             nome: nome,
             fone: fone,
             email: email,
             senha: senha,
-            endereco:endereco,
-            cidade:cidade,
+            especialidade:especialidade,
             estado:estado,
-            bairro:bairro
+            crp:crp
             
 
         };
-        this.httpClient.post<{ mensagem: string, id: string }>('http://localhost:5939/api/clientes',
+        this.httpClient.post<{ mensagem: string, id: string }>('http://localhost:3000/api/clientes',
             cliente).subscribe(
                 (dados) => {
                     cliente.id = dados.id;
@@ -72,7 +70,7 @@ export class ClienteService {
     }
     getCliente (idCliente: string){
         //return {...this.clientes.find((cli) => cli.id === idCliente)};
-        return this.httpClient.get<{_id: string, nome: string, fone: string, email: string,senha: string,endereco:string,cidade:string,estado:string,bairro:string}>(`http://localhost:3000/api/clientes/${idCliente}`);
+        return this.httpClient.get<{_id: string, nome: string, fone: string, email: string,senha: string,especialidade:string,estado:string,crp:string}>(`http://localhost:3000/api/clientes/${idCliente}`);
             
         }
 
@@ -80,16 +78,16 @@ export class ClienteService {
         return this.listaClientesAtualizada.asObservable();
     }
     removerCliente(id: string): void {
-        this.httpClient.delete(`http://localhost:5939/api/clientes/${id}`).subscribe(() => {
+        this.httpClient.delete(`http://localhost:3000/api/clientes/${id}`).subscribe(() => {
             this.clientes = this.clientes.filter((cli) => {
                 return cli.id !== id
             });
             this.listaClientesAtualizada.next([...this.clientes]);
         });
     }
-    atualizarCliente (id: string, nome: string, fone: string, email: string,senha: string,endereco:string,cidade:string,estado:string,bairro:string)
+    atualizarCliente (id: string, nome: string, fone: string, email: string,senha: string,especialidade:string,estado:string,crp:string)
     {
-        const cliente: Cliente = { id, nome, fone, email,senha,endereco,cidade,estado,bairro};
+        const cliente: Cliente = { id, nome, fone, email,senha,especialidade,estado,crp};
             this.httpClient.put(`http://localhost:3000/api/clientes/${id}`, cliente)
             .subscribe((res => {
             const copia = [...this.clientes];

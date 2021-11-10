@@ -8,10 +8,9 @@ router.post("", (req, res, next) => {
       fone: req.body.fone,
       email: req.body.email,
       senha:req.body.senha,
-      endereco:req.body.endereco,
-      cidade:req.body.cidade,
+      especialidade:req.body.especialidade,
       estado:req.body.estado,
-      bairro:req.body.bairro,
+      crp:req.body.crp,
   });
   cliente.save().then((clienteInserido) => {
     res.status(201).json({
@@ -45,10 +44,9 @@ router.put("/:id", (req, res, next) => {
       fone: req.body.fone,
       email: req.body.email,
       senha:req.body.senha,
-      endereco:req.body.endereco,
-      cidade:req.body.cidade,
+      especialidade:req.body.especialidade,
       estado:req.body.estado,
-      bairro:req.body.bairro,
+      crp:req.body.crp,
   });
   Cliente.updateOne({ _id: req.params.id }, cliente).then((resultado) => {
     console.log(resultado);

@@ -4,8 +4,7 @@ export interface Cliente {
     fone: string ;
     email: string ;
     senha: string;
-    endereco:string;
-    cidade:string;
+    especialidade:string;
     estado:string;
-    bairro:string;
+    crp:string;
     }

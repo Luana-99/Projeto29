@@ -8,15 +8,9 @@
     <hr />
     <p>Email: {{ flu.email }}</p>
     <hr />
-    <p>Senha: {{ flu.senha }}</p>
-    <hr />
-    <p>Endereço: {{ flu.endereco }}</p>
-    <hr />
-    <p>Cidade: {{ flu.cidade }}</p>
-    <hr />
     <p>Estado: {{ flu.estado }}</p>
     <hr />
-    <p>Bairro: {{ flu.bairro }}</p>
+    <p>CRP: {{ flu.crp}}</p>
     <hr />
       <mat-action-row>
         <a mat-button color="primary" [routerLink]="['/editar', flu.id]">EDITAR</a>
@@ -28,4 +22,4 @@
   <p class="mat-body-1" style="text-align: center" *ngIf="clientes.length <= 0 &&! estaCarregando">
     Nenhum cliente cadastrado
   </p>
-  <button id=bn_voltar mat-raised-button  routerLink="/inicio" > Voltar ao inicio </button>
+  <button id=bn_voltar mat-raised-button > Voltar ao inicio </button>

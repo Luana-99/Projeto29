@@ -16,24 +16,28 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ClienteService } from './clientes/cliente.service';
 import { AppRoutingModule } from './app-routing.module';
 import { Cadastro } from './cadastro/cliente.component';
-import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { InicioComponent } from './inicio/inicio.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { AgendaComponent } from './agenda/agenda.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent, InicioComponent
+    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent, InicioComponent,MenuComponent, AgendaComponent
   ],
   imports: [
     BrowserModule, FormsModule, BrowserAnimationsModule,
-    MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
+    MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,MatNativeDateModule,MatDividerModule,
     MatExpansionModule,HttpClientModule,AppRoutingModule, LayoutModule, MatSidenavModule,
-    MatIconModule, MatListModule,IvyCarouselModule,MatProgressSpinnerModule
+    MatIconModule, MatListModule,IvyCarouselModule,MatProgressSpinnerModule,MatDatepickerModule
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent]

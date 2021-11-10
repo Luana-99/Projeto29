@@ -50,30 +50,18 @@
       <mat-error *ngIf="senha.invalid">Informe nova senha</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="endereco"
-        name="endereco"
-        [ngModel]="cliente?.endereco"
-        #endereco="ngModel"
-      />
-      <mat-error *ngIf="endereco.invalid">Digite o endereço</mat-error>
+      <select required
+      matSelect
+      placeholder="especialidade"
+      name="especialidade"
+      [ngModel]="cliente?.especialidade"
+      #especialidade="ngModel">
+        <option value="1">Infantil</option>
+        <option value="2">Adolescente</option>
+        <option value="3">Adulto</option>
+      </select>
     </mat-form-field>
     <mat-form-field>
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="cidade"
-        name="cidade"
-        [ngModel]="cliente?.cidade"
-        #cidade="ngModel"
-      />
-      <mat-error *ngIf="cidade.invalid">Informe a cidade</mat-error>
-    </mat-form-field>
-    
       <select
         required
         matSelect
@@ -100,20 +88,20 @@
       <option>PI</option>
     </select>
       <mat-error *ngIf="estado.invalid">Digite o Estado</mat-error>
-   
+    </mat-form-field>
     <mat-form-field>
       <input
         type="text"
         required
         matInput
-        placeholder="bairro"
-        name="bairro"
-        [ngModel]="cliente?.bairro"
-        #bairro="ngModel"
+        placeholder="crp"
+        name="crp"
+        [ngModel]="cliente?.crp"
+        #crp="ngModel"
       />
-      <mat-error *ngIf="estado.invalid">Digite o Bairro</mat-error>
+      <mat-error *ngIf="crp.invalid">Digite o CRP</mat-error>
     </mat-form-field>
-    <button color='accent' mat-raised-button>Inserir</button>
-    <button id=bn_voluntarios mat-raised-button  routerLink="/lista"> Verificar Voluntarios </button>
+    <button color='accent' mat-raised-button routerLink="/lista">Inserir</button>
+    <button id=bn_voluntarios mat-raised-button> Verificar Voluntarios </button>
   </form>
 </mat-card>
