@@ -7,7 +7,7 @@
         minlength="4"
         type="text"
         matInput
-        placeholder="nome"
+        placeholder="Nome"
         name="nome"
         [ngModel]="cliente?.nome"
         #nome="ngModel"
@@ -18,7 +18,7 @@
         type="text"
         required
         matInput
-        placeholder="fone"
+        placeholder="Telefone"
         name="fone"
         [ngModel]="cliente?.fone"
         #fone="ngModel"
@@ -30,7 +30,7 @@
         type="text"
         required
         matInput
-        placeholder="email"
+        placeholder="Email"
         name="email"
         [ngModel]="cliente?.email"
         #email="ngModel"
@@ -42,7 +42,7 @@
         type="text"
         required
         matInput
-        placeholder="senha"
+        placeholder="Senha"
         name="senha"
         [ngModel]="cliente?.senha"
         #senha="ngModel"
@@ -50,58 +50,59 @@
       <mat-error *ngIf="senha.invalid">Informe nova senha</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <select required
+  <mat-select
+      required
       matSelect
-      placeholder="especialidade"
+      placeholder="Especialidade"
       name="especialidade"
       [ngModel]="cliente?.especialidade"
       #especialidade="ngModel">
-        <option value="1">Infantil</option>
-        <option value="2">Adolescente</option>
-        <option value="3">Adulto</option>
-      </select>
+      <mat-option  value="Infantil">Infantil</mat-option>
+      <mat-option  value="Infanto-juvenil">Infanto-juvenil</mat-option>
+      <mat-option  value="Adulto">Adulto</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <select
+    <mat-select 
         required
         matSelect
-        placeholder="estado"
+        placeholder="Estado"
         name="estado"
         [ngModel]="cliente?.estado"
-        #estado="ngModel"
-      ><option value="SP">SP</option>
-      <option>RJ</option>
-      <option>MG</option>
-      <option>BA</option>
-      <option>SE</option>
-      <option>RN</option>
-      <option>CE</option>
-      <option>TO</option>
-      <option>RO</option>
-      <option>RR</option>
-      <option>RS</option>
-      <option>MS</option>
-      <option>MT</option>
-      <option>SC</option>
-      <option>PR</option>
-      <option>PA</option>
-      <option>PI</option>
-    </select>
-      <mat-error *ngIf="estado.invalid">Digite o Estado</mat-error>
-    </mat-form-field>
+        #estado="ngModel">
+      <mat-option value="SP">SP</mat-option> 
+      <mat-option value="RJ">RJ</mat-option>
+      <mat-option value="BA">BA</mat-option>
+      <mat-option value="MG">MG</mat-option>
+      <mat-option value="SE">SE</mat-option>
+      <mat-option value="RN">RN</mat-option>
+      <mat-option value="CE">CE</mat-option>
+      <mat-option value="TO">TO</mat-option>
+      <mat-option value="RO">RO</mat-option>
+      <mat-option value="RR">RR</mat-option>
+      <mat-option value="RS">RS</mat-option>
+      <mat-option value="MS">MS</mat-option>
+      <mat-option value="MT">MT</mat-option>
+      <mat-option value="SC">SC</mat-option>
+      <mat-option value="PR">PR</mat-option>
+      <mat-option value="PA">PA</mat-option>
+      <mat-option value="PI">PI</mat-option>
+    </mat-select>
+  </mat-form-field>
+    
     <mat-form-field>
       <input
         type="text"
         required
         matInput
-        placeholder="crp"
+        placeholder="N° CRP"
         name="crp"
         [ngModel]="cliente?.crp"
         #crp="ngModel"
       />
       <mat-error *ngIf="crp.invalid">Digite o CRP</mat-error>
     </mat-form-field>
-    <button color='accent' mat-raised-button routerLink="/lista">Inserir</button>
+    <button color='accent' mat-raised-button >Inserir</button>
     <button id=bn_voluntarios mat-raised-button> Verificar Voluntarios </button>
   </form>
 </mat-card>

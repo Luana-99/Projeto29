@@ -7,8 +7,8 @@ nome: {type: String, required: true},
 fone: {type: String, required: false, default: '00000000'},
 email: {type: String, required: true},
 senha:{type:String,require:true},
-endereco:{type:String,require:true},
 especialidade:{type:String,require:true},
+estado:{type:String,require:true},
 crp:{type:String,require:true},
 
 });

@@ -54,7 +54,7 @@ export class ClienteService {
             senha: senha,
             especialidade:especialidade,
             estado:estado,
-            crp:crp
+            crp:crp,
             
 
         };
@@ -64,7 +64,7 @@ export class ClienteService {
                     cliente.id = dados.id;
                     this.clientes.push(cliente);
                     this.listaClientesAtualizada.next([...this.clientes]);
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/lista']);
                 }
             )
     }
@@ -95,6 +95,6 @@ export class ClienteService {
             copia[indice] = cliente;
             this.clientes = copia;
             this.listaClientesAtualizada.next([...this.clientes]);
-            this.router.navigate(['/'])
+            this.router.navigate(['/lista'])
             }));
             }}

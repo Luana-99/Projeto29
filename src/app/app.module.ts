@@ -27,6 +27,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MenuComponent } from './menu/menu.component';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 @NgModule({
@@ -37,7 +39,7 @@ import { MenuComponent } from './menu/menu.component';
     BrowserModule, FormsModule, BrowserAnimationsModule,
     MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,MatNativeDateModule,MatDividerModule,
     MatExpansionModule,HttpClientModule,AppRoutingModule, LayoutModule, MatSidenavModule,
-    MatIconModule, MatListModule,IvyCarouselModule,MatProgressSpinnerModule,MatDatepickerModule
+    MatIconModule, MatListModule,IvyCarouselModule,MatProgressSpinnerModule,MatDatepickerModule,MatSelectModule
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent]
