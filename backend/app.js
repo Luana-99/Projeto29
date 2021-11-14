@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 const mongoose = require("mongoose");
 const clienteRoutes = require("./rotas/clientes");
+const pacienteRoutes = require("./rotas/pacientes")
 
 mongoose
   .connect(
@@ -36,5 +37,6 @@ app.use((req, res, next) => {res.setHeader("Access-Control-Allow-Origin", "*");
   next();
 });
 app.use('/api/clientes',clienteRoutes);
+app.use('/api/pacientes',pacienteRoutes);
 
 module.exports = app;

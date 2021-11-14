@@ -28,12 +28,14 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MenuComponent } from './menu/menu.component';
 import {MatSelectModule} from '@angular/material/select';
-
+import { PacienteInserirComponent } from './clientes/paciente-inserir/paciente-inserir.component';
+import { PacienteListaComponent } from './clientes/paciente-lista/paciente-lista.component';
+import { PacienteService } from './clientes/paciente.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent, InicioComponent,MenuComponent, AgendaComponent
+    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent, InicioComponent,MenuComponent, AgendaComponent,PacienteInserirComponent,PacienteListaComponent
   ],
   imports: [
     BrowserModule, FormsModule, BrowserAnimationsModule,
@@ -41,7 +43,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatExpansionModule,HttpClientModule,AppRoutingModule, LayoutModule, MatSidenavModule,
     MatIconModule, MatListModule,IvyCarouselModule,MatProgressSpinnerModule,MatDatepickerModule,MatSelectModule
   ],
-  providers: [ClienteService],
+  providers: [ClienteService,PacienteService],
   bootstrap: [AppComponent]
   
 })

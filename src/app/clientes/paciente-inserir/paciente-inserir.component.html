@@ -1,0 +1,95 @@
+<mat-card>
+  <mat-spinner *ngIf="estaCarregando"></mat-spinner>
+  <form (submit)="onSalvarPaciente(pacienteForm)" *ngIf="!estaCarregando" #pacienteForm="ngForm">
+    <mat-form-field>
+      <input
+        required
+        minlength="4"
+        type="text"
+        matInput
+        placeholder="Nome"
+        name="nome"
+        [ngModel]="paciente?.nome"
+        #nome="ngModel"
+      /><mat-error *ngIf="nome.invalid">Digite um nome válido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Telefone"
+        name="fone"
+        [ngModel]="paciente?.fone"
+        #fone="ngModel"
+      />
+      <mat-error *ngIf="fone.invalid">Digite um telefone válido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Email"
+        name="email"
+        [ngModel]="paciente?.email"
+        #email="ngModel"
+      />
+      <mat-error *ngIf="email.invalid">Digite um nome válido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Senha"
+        name="senha"
+        [ngModel]="paciente?.senha"
+        #senha="ngModel"
+      />
+      <mat-error *ngIf="senha.invalid">Informe nova senha</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+    <mat-select 
+        required
+        matSelect
+        placeholder="Estado"
+        name="estado"
+        [ngModel]="paciente?.estado"
+        #estado="ngModel">
+      <mat-option value="SP">SP</mat-option> 
+      <mat-option value="RJ">RJ</mat-option>
+      <mat-option value="BA">BA</mat-option>
+      <mat-option value="MG">MG</mat-option>
+      <mat-option value="SE">SE</mat-option>
+      <mat-option value="RN">RN</mat-option>
+      <mat-option value="CE">CE</mat-option>
+      <mat-option value="TO">TO</mat-option>
+      <mat-option value="RO">RO</mat-option>
+      <mat-option value="RR">RR</mat-option>
+      <mat-option value="RS">RS</mat-option>
+      <mat-option value="MS">MS</mat-option>
+      <mat-option value="MT">MT</mat-option>
+      <mat-option value="SC">SC</mat-option>
+      <mat-option value="PR">PR</mat-option>
+      <mat-option value="PA">PA</mat-option>
+      <mat-option value="PI">PI</mat-option>
+    </mat-select>
+  </mat-form-field>
+    
+    <mat-form-field>
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Data de Nascimento"
+        name="datanasc"
+        [ngModel]="paciente?.datanasc"
+        #datanasc="ngModel"
+      />
+      <mat-error *ngIf="datanasc.invalid">Digite a Data de nascimento</mat-error>
+    </mat-form-field>
+    <button color='accent' mat-raised-button >Inserir</button>
+    <button id=bn_voluntarios mat-raised-button> Verificar Voluntarios </button>
+  </form>
+</mat-card>

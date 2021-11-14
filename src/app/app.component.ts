@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Cliente } from './clientes/cliente.model';
+import { Paciente } from './clientes/paciente.model';
 
 
 @Component({
@@ -9,10 +10,14 @@ import { Cliente } from './clientes/cliente.model';
 })
 export class AppComponent {
   clientes: Cliente[] = [];
+  pacientes:Paciente[]=[];
  
 
   onClienteAdicionado(cliente: Cliente) {
   this.clientes.push(cliente);
   }
 
+  onPacienteAdicionado(paciente: Paciente) {
+    this.pacientes.push(paciente);
+    }
 }
