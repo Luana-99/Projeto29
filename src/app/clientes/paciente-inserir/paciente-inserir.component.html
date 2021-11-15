@@ -1,6 +1,6 @@
 <mat-card>
   <mat-spinner *ngIf="estaCarregando"></mat-spinner>
-  <form (submit)="onSalvarPaciente(pacienteForm)" *ngIf="!estaCarregando" #pacienteForm="ngForm">
+  <form (submit)="onSalvarPaciente()" *ngIf="!estaCarregando" >
     <mat-form-field>
       <input
         required
@@ -9,10 +9,15 @@
         matInput
         placeholder="Nome"
         name="nome"
-        [ngModel]="paciente?.nome"
-        #nome="ngModel"
-      /><mat-error *ngIf="nome.invalid">Digite um nome válido</mat-error>
+        formControlName="nome"
+
+      /><mat-error *ngIf="form.get('nome')!.invalid">Digite um nome válido</mat-error>
     </mat-form-field>
+    <div>
+      <button mat-stroked-button type="button" (click)="selecionaArquivo.click()">Selecionar
+        Imagem</button>
+        <input type="file" #selecionaArquivo>
+      </div>
     <mat-form-field>
       <input
         type="text"
@@ -20,10 +25,9 @@
         matInput
         placeholder="Telefone"
         name="fone"
-        [ngModel]="paciente?.fone"
-        #fone="ngModel"
-      />
-      <mat-error *ngIf="fone.invalid">Digite um telefone válido</mat-error>
+        formControlName="fone"
+       >
+      <mat-error *ngIf="form.get('fone')!.invalid">Digite um telefone válido</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input
@@ -32,10 +36,9 @@
         matInput
         placeholder="Email"
         name="email"
-        [ngModel]="paciente?.email"
-        #email="ngModel"
-      />
-      <mat-error *ngIf="email.invalid">Digite um nome válido</mat-error>
+        formControlName="email"
+        />
+      <mat-error *ngIf="form.get('email')!.invalid">Digite um nome válido</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input
@@ -43,21 +46,19 @@
         required
         matInput
         placeholder="Senha"
+        formControlName="senha"
         name="senha"
-        [ngModel]="paciente?.senha"
-        #senha="ngModel"
-      />
-      <mat-error *ngIf="senha.invalid">Informe nova senha</mat-error>
+        />
+      <mat-error *ngIf="form.get('senha')!.invalid">Informe nova senha</mat-error>
     </mat-form-field>
     <mat-form-field>
     <mat-select 
         required
         matSelect
         placeholder="Estado"
-        name="estado"
-        [ngModel]="paciente?.estado"
-        #estado="ngModel">
-      <mat-option value="SP">SP</mat-option> 
+        formControlName="estado"
+        name="estado">
+           <mat-option value="SP">SP</mat-option> 
       <mat-option value="RJ">RJ</mat-option>
       <mat-option value="BA">BA</mat-option>
       <mat-option value="MG">MG</mat-option>
@@ -83,11 +84,11 @@
         required
         matInput
         placeholder="Data de Nascimento"
+        formControlName="datanasc"
         name="datanasc"
-        [ngModel]="paciente?.datanasc"
-        #datanasc="ngModel"
+       
       />
-      <mat-error *ngIf="datanasc.invalid">Digite a Data de nascimento</mat-error>
+      <mat-error *ngIf="form.get('datanasc')!.invalid">Digite a Data de nascimento</mat-error>
     </mat-form-field>
     <button color='accent' mat-raised-button >Inserir</button>
     <button id=bn_voluntarios mat-raised-button> Verificar Voluntarios </button>

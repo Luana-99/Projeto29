@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl,FormGroup,NgForm,Validators } from '@angular/forms';
 import { PacienteService } from '../paciente.service';
 import { ActivatedRoute,ParamMap } from '@angular/router';
 import { Paciente } from '../paciente.model';
@@ -16,9 +16,29 @@ export class PacienteInserirComponent implements OnInit {
     private idPaciente: string | null = null;
     public paciente: Paciente | undefined;
     public estaCarregando: boolean=false;
-
+    form!: FormGroup;
 
     ngOnInit() {
+        this.form = new FormGroup({
+            nome: new FormControl (null, {
+            validators: [Validators.required, Validators.minLength(3)]
+            }),
+            fone: new FormControl (null, {
+            validators: [Validators.required]
+            }),
+            email: new FormControl (null, {
+            validators: [Validators.required, Validators.email]
+            }),
+            senha:new FormControl(null,{
+                validators:[Validators.required,Validators.minLength(6)]
+            }),
+            estado:new FormControl(null,{
+                validators:[Validators.required]
+            }),
+            datanasc:new FormControl(null,{
+                validators:[Validators.required]
+            })
+        })
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
             if (paramMap.has("idPaciente")) {
                 this.modo = "editarPaciente";
@@ -36,6 +56,14 @@ export class PacienteInserirComponent implements OnInit {
                     datanasc:dadosPac.datanasc
 
                     };
+                    this.form.setValue({
+                        nome: this.paciente.nome,
+                        fone: this.paciente.fone,
+                        email: this.paciente.email,
+                        senha:this.paciente.senha,
+                        estado:this.paciente.estado,
+                        datanasc:this.paciente.datanasc
+                    })
                     });
                 }
                 else{
@@ -46,35 +74,35 @@ export class PacienteInserirComponent implements OnInit {
                 }
 constructor(public pacienteService: PacienteService,public route: ActivatedRoute) {}
 
-onSalvarPaciente(form: NgForm) {
-    if (form.invalid) {
+onSalvarPaciente() {
+    if (this.form.invalid) {
     return;
     }
     this.estaCarregando=true;
     if (this.modo ==="criarPaciente"){
         this.pacienteService.adicionarPaciente(
-    form.value.nome,
-    form.value.fone,
-    form.value.email,
-    form.value.senha,
-    form.value.estado,
-    form.value.datanasc,
+    this.form.value.nome,
+    this.form.value.fone,
+    this.form.value.email,
+    this.form.value.senha,
+    this.form.value.estado,
+    this.form.value.datanasc,
         );
     }else{
         this.pacienteService.atualizarPaciente(
             this.idPaciente!,
-            form.value.nome,
-            form.value.fone,
-            form.value.email,
-            form.value.senha,
-            form.value.estado,
-            form.value.datanasc
+            this.form.value.nome,
+            this.form.value.fone,
+            this.form.value.email,
+            this.form.value.senha,
+            this.form.value.estado,
+            this.form.value.datanasc
 
 
         )
     }
 
-    form.resetForm();
+    this.form.reset();
     }
     
 }

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ClienteInserirComponent } from './clientes/cliente-inserir/cliente-inserir.component';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
@@ -38,7 +39,7 @@ import { PacienteService } from './clientes/paciente.service';
     AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent, InicioComponent,MenuComponent, AgendaComponent,PacienteInserirComponent,PacienteListaComponent
   ],
   imports: [
-    BrowserModule, FormsModule, BrowserAnimationsModule,
+    BrowserModule, FormsModule,ReactiveFormsModule, BrowserAnimationsModule,
     MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,MatNativeDateModule,MatDividerModule,
     MatExpansionModule,HttpClientModule,AppRoutingModule, LayoutModule, MatSidenavModule,
     MatIconModule, MatListModule,IvyCarouselModule,MatProgressSpinnerModule,MatDatepickerModule,MatSelectModule
